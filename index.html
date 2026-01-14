@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background-color: white;
+            color: #667eea;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 1rem;
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .experience-container {
+            margin-top: 2rem;
+        }
+
+        .experience-item {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item h3 {
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .date {
+            font-size: 0.9rem;
+            color: #667eea;
+            font-weight: bold;
+            white-space: nowrap;
+            margin-left: 1rem;
+        }
+
+        .company {
+            color: #666;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .experience-item ul {
+            margin-left: 1.5rem;
+            color: #555;
+        }
+
+        .experience-item li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card ul {
+            list-style-position: inside;
+            color: #555;
+        }
+
+        .skill-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .education-content {
+            margin-top: 1.5rem;
+        }
+
+        .education-item {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .education-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .school {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .details {
+            color: #666;
+            margin: 0;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <h1>Michael Martiradonna</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>IT Professional & Technical Support Specialist</h2>
+        <p>Chicago, IL | mjmartiradonna@gmail.com | 410.870.5380</p>
+        <button class="cta-button">Download Resume</button>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>Professional Summary</h2>
+        <div class="about-content">
+            <p>
+                IT professional with 5+ years of hands-on experience in technical support, troubleshooting, and IT infrastructure. 
+                Proven expertise in diagnosing and resolving complex hardware, software, and network issues across diverse business 
+                environments. Known for excellent communication, professionalism, and a passion for leveraging technology to drive efficiency 
+                and improve user experiences. Skilled in IT service delivery, system administration, and technical mentorship.
+            </p>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="experience-container">
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>IT Helpdesk Technician</h3>
+                    <span class="date">December 2023 - Present</span>
+                </div>
+                <p class="company">Captain James A. Lovell Federal Health Care Center | North Chicago, IL</p>
+                <ul>
+                    <li>Resolve technical issues for hundreds of healthcare and administrative users, maintaining 100% satisfaction rates</li>
+                    <li>Troubleshoot and fix critical network and hardware issues, preventing patient care disruptions</li>
+                    <li>Received two Bravo Zulu commendations for professional demeanor and exceptional customer service</li>
+                    <li>Completed 100-150 help desk requests per week with detailed documentation via ServiceNow platform</li>
+                    <li>Utilized Microsoft Active Directory and IT services to provision and manage laptops and IT equipment</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>IT Technical Manager & Sales Support Specialist</h3>
+                    <span class="date">2021 - 2023</span>
+                </div>
+                <p class="company">Private Lending Group | Remote</p>
+                <ul>
+                    <li>Launched text support automation system that saved sales team 10+ hours per week on lead qualification</li>
+                    <li>Mentored junior staff on CRM usage and best practices, streamlining data analysis for sales and marketing departments</li>
+                    <li>Hired and directed technical contractors to develop company web pages and optimize CRM systems</li>
+                    <li>Provided technical infrastructure support to business operations across multiple departments</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Junior Infrastructure Apprentice</h3>
+                    <span class="date">August 2022 - December 2022</span>
+                </div>
+                <p class="company">Cloud5 Communications | Remote</p>
+                <ul>
+                    <li>Pushed updates and reset devices for major hotel chains, preventing downtime for thousands of guests</li>
+                    <li>Automated error reporting and device resets, saving tens of hours of manual work each week</li>
+                    <li>Gained hands-on experience with cloud infrastructure and device management</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>IT Strategist & Technician</h3>
+                    <span class="date">2017 - 2020</span>
+                </div>
+                <p class="company">Elite Fitness | Remote</p>
+                <ul>
+                    <li>Streamlined business processes with automation tools, saving 80+ hours per month</li>
+                    <li>Developed website, mobile app, and education course platform, increasing user compliance by 30%+ and dousting referrals</li>
+                    <li>Integrated and managed Zapier, Manychat, and ActiveCampaign for sales metrics and automation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Certifications Section -->
+    <section id="skills">
+        <h2>Technical Skills & Certifications</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <h3>IT Support & Troubleshooting</h3>
+                <ul>
+                    <li>Hardware/Software Diagnostics</li>
+                    <li>Network Troubleshooting</li>
+                    <li>Server & Cloud Support</li>
+                    <li>Advanced IT Troubleshooting</li>
+                    <li>Help Desk Management</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Systems & Platforms</h3>
+                <ul>
+                    <li>Microsoft 365 & Active Directory</li>
+                    <li>Google Workspace</li>
+                    <li>ServiceNow Platform</li>
+                    <li>Cloud Infrastructure</li>
+                    <li>CRM Systems</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Professional Competencies</h3>
+                <ul>
+                    <li>Technical Documentation</li>
+                    <li>Process Improvement</li>
+                    <li>Mentorship & Leadership</li>
+                    <li>Customer Service Excellence</li>
+                    <li>Process Automation</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Certifications</h3>
+                <ul>
+                    <li>AWS Cloud Practitioner</li>
+                    <li>NASM CPT, PES, CES</li>
+                    <li>Precision Nutrition Level 1</li>
+                    <li>CPR/AED Certified</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-content">
+            <div class="education-item">
+                <h3>Bachelor of Science (130+ Credit Hours)</h3>
+                <p class="school">Roosevelt University - Chicago, IL</p>
+                <p class="details">Coursework: Computer Science, Programming Fundamentals, Pre-Medicine</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Michael Martiradonna. All rights reserved. | <a href="mailto:mjmartiradonna@gmail.com">mjmartiradonna@gmail.com</a> | 410.870.5380</p>
+    </footer>
+</body>
+</html>
