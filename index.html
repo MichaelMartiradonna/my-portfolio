@@ -1,543 +1,198 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            font-size: 1.5rem;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #3498db;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4rem 1.5rem;
-            text-align: center;
-        }
-
-        .hero h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-button {
-            background-color: white;
-            color: #667eea;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-        }
-
-        section {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-
-        section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 1rem;
-        }
-
-        .about-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .experience-container {
-            margin-top: 2rem;
-        }
-
-        .experience-item {
-            background-color: #f8f9fa;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid #667eea;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .experience-item h3 {
-            color: #2c3e50;
-            margin: 0;
-        }
-
-        .date {
-            font-size: 0.9rem;
-            color: #667eea;
-            font-weight: bold;
-            white-space: nowrap;
-            margin-left: 1rem;
-        }
-
-        .company {
-            color: #666;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .experience-item ul {
-            margin-left: 1.5rem;
-            color: #555;
-        }
-
-        .experience-item li {
-            margin-bottom: 0.8rem;
-            line-height: 1.6;
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-card {
-            background-color: #f8f9fa;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-card h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        .skill-card ul {
-            list-style-position: inside;
-            color: #555;
-        }
-
-        .skill-card li {
-            margin-bottom: 0.5rem;
-        }
-
-        .education-content {
-            margin-top: 1.5rem;
-        }
-
-        .education-item {
-            background-color: #f8f9fa;
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .education-item h3 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .school {
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .details {
-            color: #666;
-            margin: 0;
-        }
-
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        footer a {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Mobile Responsive Styles */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem 1.5rem;
-            }
-
-            header h1 {
-                font-size: 1.3rem;
-                margin-bottom: 0.5rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-                justify-content: center;
-                font-size: 0.9rem;
-            }
-
-            nav a {
-                padding: 0.5rem;
-            }
-
-            .hero {
-                padding: 3rem 1.5rem;
-            }
-
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-
-            .hero p {
-                font-size: 0.95rem;
-            }
-
-            .cta-button {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.95rem;
-            }
-
-            .about-content {
-                font-size: 1rem;
-            }
-
-            .experience-item {
-                padding: 1.5rem 1rem;
-            }
-
-            .experience-header {
-                flex-direction: column;
-            }
-
-            .experience-item h3 {
-                font-size: 1.1rem;
-            }
-
-            .company {
-                font-size: 0.95rem;
-            }
-
-            .experience-item ul {
-                margin-left: 1rem;
-            }
-
-            .experience-item li {
-                font-size: 0.95rem;
-            }
-
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-
-            .skill-card {
-                padding: 1.5rem 1rem;
-            }
-
-            .skill-card h3 {
-                font-size: 1.1rem;
-            }
-
-            .education-item {
-                padding: 1.5rem 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                font-size: 14px;
-            }
-
-            header h1 {
-                font-size: 1.1rem;
-            }
-
-            nav ul {
-                gap: 0.5rem;
-                font-size: 0.85rem;
-            }
-
-            section {
-                margin: 1.5rem auto;
-                padding: 0 1rem;
-            }
-
-            section h2 {
-                font-size: 1.3rem;
-                margin-bottom: 1rem;
-            }
-
-            .hero {
-                padding: 2rem 1rem;
-            }
-
-            .hero h2 {
-                font-size: 1.3rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .hero p {
-                font-size: 0.9rem;
-                margin-bottom: 1rem;
-            }
-
-            .cta-button {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
-            }
-
-            .experience-item {
-                padding: 1rem 0.8rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .skill-card {
-                padding: 1.2rem 0.8rem;
-            }
-
-            footer {
-                padding: 1.5rem 1rem;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Michael Martiradonna</title>
+<meta name="description" content="Implementation and solutions engineer. Data migration, integrations, Python/SQL. AWS certified. Remote, Chicago area.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#f6f4ef; --surface:#fffdf8; --fg:#1d1f1a; --muted:#5f655c; --line:#dcd8cd;
+  --accent:#1f6f5c; --accent-soft:#dfeee8; --code-bg:#1d1f1a; --code-fg:#e8e6df;
+  --display:"Source Serif 4", Georgia, serif; --body:"Inter Tight", system-ui, sans-serif; --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#15171a; --surface:#1d2024; --fg:#ecebe6; --muted:#a4a79f; --line:#2f3338;
+  --accent:#5fc2a5; --accent-soft:#1d352e; --code-bg:#0f1113; --code-fg:#dcdad3; color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55}
+a{color:var(--accent)}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header.top{padding:28px 0 8px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:700;font-size:18px;text-decoration:none;color:var(--fg)}
+nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14.5px}
+nav a:hover{color:var(--fg)}
+.hero{padding:56px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-family:var(--display);font-size:clamp(34px,6vw,54px);line-height:1.05;margin:0 0 14px;font-weight:700;letter-spacing:-.01em;text-wrap:balance}
+.hero p.lede{font-size:19px;max-width:62ch;margin:0 0 24px;color:var(--fg)}
+.hero p.sub{color:var(--muted);max-width:66ch;margin:0 0 28px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-decoration:none;font-weight:500;font-size:15px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:hover{border-color:var(--accent)}
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-family:var(--display);font-size:28px;margin:0 0 6px;font-weight:700}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+.projects{display:grid;grid-template-columns:1fr;gap:28px}
+.card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.card .text{padding:26px 26px 22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.card h3{font-family:var(--display);font-size:24px;margin:0;font-weight:700}
+.card .role{font-family:var(--mono);font-size:12.5px;color:var(--accent);letter-spacing:.02em}
+.card p{margin:0;color:var(--fg)}
+.card .proof{color:var(--muted);font-size:14.5px}
+.card .stack{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.card .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.card .links a{font-size:14px;padding:7px 12px}
+.card .links a.soon{opacity:.55;pointer-events:none}
+.visual{background:var(--accent-soft);display:flex;align-items:center;justify-content:center;min-height:260px;padding:18px}
+.visual img{max-width:100%;max-height:360px;border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.18);display:block}
+.term{width:100%;background:var(--code-bg);color:var(--code-fg);border-radius:8px;padding:16px 18px;font-family:var(--mono);font-size:12.5px;line-height:1.5;white-space:pre;overflow-x:auto;box-shadow:0 8px 28px rgba(0,0,0,.18)}
+.term .ok{color:#7fd6b3}.term .bad{color:#f0a3a3}.term .dim{color:#8e928a}
+@media (max-width:760px){.card{grid-template-columns:1fr}.visual{order:-1;min-height:200px}}
+.about p{max-width:68ch;margin:0 0 14px}
+.exp{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.exp li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.exp li:last-child{border-bottom:0}
+.exp .when{font-family:var(--mono);font-size:12.5px;color:var(--muted);padding-top:3px}
+.exp strong{display:block;font-weight:600}
+.exp span{color:var(--muted);font-size:15px}
+@media (max-width:600px){.exp li{grid-template-columns:1fr;gap:4px}}
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.creds span{font-family:var(--mono);font-size:12.5px;padding:5px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+footer{padding:36px 0 56px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <h1>Michael Martiradonna</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#">Michael Martiradonna</a>
+    <nav><a href="#projects">Projects</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <div class="hero">
+    <h1>I move customers and their data onto new systems, and I build the tooling that proves it landed.</h1>
+    <p class="lede">Implementation &amp; Solutions Engineer. Data migration, integrations, Python/SQL. AWS Certified Cloud Practitioner. Remote, Chicago area.</p>
+    <p class="sub">Five years of customer-facing IT, from a federal medical center's helpdesk to migrating a fitness business onto a new CRM and course platform. Three shipped projects below: a fail-closed migration validator, an ML service with CI and a hosted demo, and a rules-driven coaching app.</p>
+    <div class="btns">
+      <a class="btn primary" href="Michael_Martiradonna_Resume.pdf">Resume (PDF)</a>
+      <a class="btn" href="https://github.com/MichaelMartiradonna">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/michaelmartiradonna/">LinkedIn</a>
+      <a class="btn" href="mailto:mjmartiradonna@gmail.com">mjmartiradonna@gmail.com</a>
+    </div>
+  </div>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="kicker">Three, each with a live link, the code, and the proof</div>
+    <div class="projects">
+
+      <article class="card">
+        <div class="text">
+          <div class="role">Headline project · data migration</div>
+          <h3>Cutover</h3>
+          <p>A fail-closed toolkit for moving a legacy export into a new system: validate against reviewed rules, map columns, reconcile source against target field by field, upload to S3 with hash verification, and sign off with a runbook. It repairs nothing and blocks the handoff on any failure.</p>
+          <p class="proof">34 automated tests · two worked examples (a property-management tenant export, a legacy parts list into a cloud table) · independent code review · byte-for-byte field comparison and SHA-256 checksums</p>
+          <div class="stack">Python · YAML · SHA-256 · boto3/S3 · GitHub Actions</div>
+          <div class="links">
+            <a class="btn" href="https://github.com/MichaelMartiradonna/cutover">Code</a>
+            <a class="btn soon" href="#" aria-disabled="true">Video (soon)</a>
+          </div>
         </div>
-    </header>
+        <div class="visual">
+<pre class="term"><span class="dim">PS&gt;</span> python validate.py tenants_appfolio_200.csv --rules rules/tenants.yaml --out run-01
+<span class="bad">Exit code: 1</span>
+row,rule,why
+17,R001,unit is required; it is blank.
+42,D001,move_in_date must be an exact YYYY-MM-DD date.
+88,E001,"status must be exactly active, notice, or vacant."
+131,U001,Duplicate unit and name; also in CSV record(s): 132.
+<span class="dim">… 12 rejections. No clean.csv written. No checksum. Human review required.</span>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h2>IT Professional & Technical Support Specialist</h2>
-        <p>Chicago, IL | mjmartiradonna@gmail.com | 410.870.5380</p>
-        <button class="cta-button">Download Resume</button>
-    </section>
-
-    <!-- About Me Section -->
-    <section id="about">
-        <h2>Professional Summary</h2>
-        <div class="about-content">
-            <p>
-                IT professional with 5+ years of hands-on experience in technical support, troubleshooting, and IT infrastructure. 
-                Proven expertise in diagnosing and resolving complex hardware, software, and network issues across diverse business 
-                environments. Known for excellent communication, professionalism, and a passion for leveraging technology to drive efficiency 
-                and improve user experiences. Skilled in IT service delivery, system administration, and technical mentorship.
-            </p>
+<span class="dim">PS&gt;</span> python reconcile.py run-02/clean.csv run-02/target.csv --key unit --out run-02
+<span class="ok">Verdict: PASS (14 checks, 0 failed)</span></pre>
         </div>
-    </section>
+      </article>
 
-    <!-- Work Experience Section -->
-    <section id="experience">
-        <h2>Work Experience</h2>
-        <div class="experience-container">
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>IT Helpdesk Technician</h3>
-                    <span class="date">December 2023 - Present</span>
-                </div>
-                <p class="company">Captain James A. Lovell Federal Health Care Center | North Chicago, IL</p>
-                <ul>
-                    <li>Resolve technical issues for hundreds of healthcare and administrative users, maintaining 100% satisfaction rates</li>
-                    <li>Troubleshoot and fix critical network and hardware issues, preventing patient care disruptions</li>
-                    <li>Received two Bravo Zulu commendations for professional demeanor and exceptional customer service</li>
-                    <li>Completed 100-150 help desk requests per week with detailed documentation via ServiceNow platform</li>
-                    <li>Utilized Microsoft Active Directory and IT services to provision and manage laptops and IT equipment</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>IT Technical Manager & Sales Support Specialist</h3>
-                    <span class="date">2021 - 2023</span>
-                </div>
-                <p class="company">Private Lending Group | Remote</p>
-                <ul>
-                    <li>Launched text support automation system that saved sales team 10+ hours per week on lead qualification</li>
-                    <li>Mentored junior staff on CRM usage and best practices, streamlining data analysis for sales and marketing departments</li>
-                    <li>Hired and directed technical contractors to develop company web pages and optimize CRM systems</li>
-                    <li>Provided technical infrastructure support to business operations across multiple departments</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>Junior Infrastructure Apprentice</h3>
-                    <span class="date">August 2022 - December 2022</span>
-                </div>
-                <p class="company">Cloud5 Communications | Remote</p>
-                <ul>
-                    <li>Pushed updates and reset devices for major hotel chains, preventing downtime for thousands of guests</li>
-                    <li>Automated error reporting and device resets, saving tens of hours of manual work each week</li>
-                    <li>Gained hands-on experience with cloud infrastructure and device management</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>IT Strategist & Technician</h3>
-                    <span class="date">2017 - 2020</span>
-                </div>
-                <p class="company">Elite Fitness | Remote</p>
-                <ul>
-                    <li>Streamlined business processes with automation tools, saving 80+ hours per month</li>
-                    <li>Developed website, mobile app, and education course platform, increasing user compliance by 30%+ and dousting referrals</li>
-                    <li>Integrated and managed Zapier, Manychat, and ActiveCampaign for sales metrics and automation</li>
-                </ul>
-            </div>
+      <article class="card">
+        <div class="text">
+          <div class="role">ML service, end to end</div>
+          <h3>Ames Home-Price Lab</h3>
+          <p>Describe a home, review the extracted details, and a saved Random Forest estimates its historical sale price in Ames, Iowa. Training-fitted preprocessing, five tracked experiments, validation-based selection, an exported pipeline with a checksum manifest, Docker, and CI that runs tests, training and a container check.</p>
+          <p class="proof">MAE $17,765 on 586 held-out homes, 72% below the median baseline · 83 tests · graded 91/100 · hosted demo runs with no API keys</p>
+          <div class="stack">scikit-learn · MLflow · DVC · Streamlit · Docker · GitHub Actions</div>
+          <div class="links">
+            <a class="btn primary" href="https://ames-home-price-lab.streamlit.app/">Live demo</a>
+            <a class="btn" href="https://github.com/MichaelMartiradonna/ames-housing-mlops">Code</a>
+            <a class="btn" href="https://youtu.be/1mW6WnJn5k4">Video · 5:45</a>
+          </div>
         </div>
-    </section>
-
-    <!-- Skills & Certifications Section -->
-    <section id="skills">
-        <h2>Technical Skills & Certifications</h2>
-        <div class="skills-container">
-            <div class="skill-card">
-                <h3>IT Support & Troubleshooting</h3>
-                <ul>
-                    <li>Hardware/Software Diagnostics</li>
-                    <li>Network Troubleshooting</li>
-                    <li>Server & Cloud Support</li>
-                    <li>Advanced IT Troubleshooting</li>
-                    <li>Help Desk Management</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <h3>Systems & Platforms</h3>
-                <ul>
-                    <li>Microsoft 365 & Active Directory</li>
-                    <li>Google Workspace</li>
-                    <li>ServiceNow Platform</li>
-                    <li>Cloud Infrastructure</li>
-                    <li>CRM Systems</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <h3>Professional Competencies</h3>
-                <ul>
-                    <li>Technical Documentation</li>
-                    <li>Process Improvement</li>
-                    <li>Mentorship & Leadership</li>
-                    <li>Customer Service Excellence</li>
-                    <li>Process Automation</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <h3>Certifications</h3>
-                <ul>
-                    <li>AWS Cloud Practitioner</li>
-                    <li>NASM CPT, PES, CES</li>
-                    <li>Precision Nutrition Level 1</li>
-                    <li>CPR/AED Certified</li>
-                </ul>
-            </div>
+        <div class="visual">
+          <img src="https://raw.githubusercontent.com/MichaelMartiradonna/ames-housing-mlops/main/docs/images/historical-estimate.jpg" alt="Ames Home-Price Lab showing a historical estimate of $219,776 and its explanation" loading="lazy">
         </div>
-    </section>
+      </article>
 
-    <!-- Education Section -->
-    <section id="education">
-        <h2>Education</h2>
-        <div class="education-content">
-            <div class="education-item">
-                <h3>Bachelor of Science (130+ Credit Hours)</h3>
-                <p class="school">Roosevelt University - Chicago, IL</p>
-                <p class="details">Coursework: Computer Science, Programming Fundamentals, Pre-Medicine</p>
-            </div>
+      <article class="card">
+        <div class="text">
+          <div class="role">Rules-driven coaching app</div>
+          <h3>Gym Swap</h3>
+          <p>When a planned exercise's equipment is busy or missing, Gym Swap offers a reviewed substitute and explains the tradeoffs. A deterministic rules engine decides; an optional explanation layer only cites reviewed coaching notes, so no model ever invents advice. The first public piece of seeform, a longer project on movement coaching.</p>
+          <p class="proof">133 exercises · 270 reviewed comparisons · 357 automated tests in the source suite · shipped through a Lab-first release process with phone acceptance checks</p>
+          <div class="stack">JavaScript · esbuild · retrieval over reviewed notes · Cloudflare Pages</div>
+          <div class="links">
+            <a class="btn primary soon" href="#" aria-disabled="true">Live demo (soon)</a>
+            <a class="btn" href="https://github.com/MichaelMartiradonna/gym-swap-demo">Code</a>
+            <a class="btn soon" href="#" aria-disabled="true">Video (soon)</a>
+          </div>
         </div>
-    </section>
+        <div class="visual">
+          <img src="assets/gym-swap-phone.jpg" alt="Gym Swap on a phone showing a reviewed swap card" loading="lazy">
+        </div>
+      </article>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Michael Martiradonna. All rights reserved. | <a href="mailto:mjmartiradonna@gmail.com">mjmartiradonna@gmail.com</a> | 410.870.5380</p>
-    </footer>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About</h2>
+    <div class="kicker">Why implementation work</div>
+    <p>I spent a year at the Captain James A. Lovell Federal Health Care Center resolving 100 to 150 tickets a week for clinical staff with 100% satisfaction, and before that I ran the technology for a fitness business: a CRM, a mobile app and a course platform, including migrating every client's records onto them without losing history. The pattern in both jobs is the same one implementation teams hire for: understand what the customer actually has, move it correctly, and make sure they can use it.</p>
+    <p>I also build. The three projects above are the evidence: a migration validator that refuses to guess, an ML service with honest metrics and CI, and a coaching app with 350+ tests. Outside work I am a NASM-certified trainer and run <a href="https://chitownperformancelab.com">Chi-Town Performance Lab</a>; seeform is where the coaching and the engineering meet.</p>
+    <div class="creds">
+      <span>AWS Certified Cloud Practitioner</span><span>TripleTen Data Analyst + AI/ML</span><span>Roosevelt University, 130+ credits</span><span>NASM CPT · PES · CES</span><span>Previously held TS (2013) and Secret (2023)</span>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="kicker">Customer-facing technical work since 2017</div>
+    <ul class="exp">
+      <li><div class="when">12/2023 – 12/2024</div><div><strong>IT Helpdesk Technician · Captain James A. Lovell Federal Health Care Center (VA)</strong><span>100–150 tickets a week, 100% satisfaction, two Bravo Zulu commendations. Active Directory and ServiceNow under federal change control.</span></div></li>
+      <li><div class="when">2021 – 2023</div><div><strong>IT Technical Manager &amp; Sales Support · Private Lending Group</strong><span>Text-based lead-qualification automation saving 10+ hours a week; directed contractors on web and CRM work.</span></div></li>
+      <li><div class="when">08/2022 – 12/2022</div><div><strong>Junior Infrastructure Apprentice · Cloud5 Communications</strong><span>Device fleet updates and remote resets for major hotel chains; automated error reporting.</span></div></li>
+      <li><div class="when">2017 – 2020</div><div><strong>IT Strategist &amp; Technician · Elite Fitness</strong><span>Led the migration of client records, scheduling and course content onto a new CRM, app and education platform; Zapier, Manychat and ActiveCampaign automation saving 80+ hours a month.</span></div></li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="kicker">Remote roles, Chicago area</div>
+    <div class="btns">
+      <a class="btn primary" href="mailto:mjmartiradonna@gmail.com">mjmartiradonna@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/michaelmartiradonna/">LinkedIn</a>
+      <a class="btn" href="https://github.com/MichaelMartiradonna">GitHub</a>
+      <a class="btn" href="Michael_Martiradonna_Resume.pdf">Resume (PDF)</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Michael Martiradonna · Schererville, IN</span>
+    <span><a href="https://seeform.ai">seeform.ai</a> · <a href="https://chitownperformancelab.com">chitownperformancelab.com</a></span>
+  </footer>
+</div>
 </body>
 </html>
