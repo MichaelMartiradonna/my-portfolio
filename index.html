@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Michael Martiradonna</title>
-<meta name="description" content="Implementation and solutions engineer. Data migration, integrations, Python/SQL. AWS certified. Remote, Chicago area.">
+<meta name="description" content="Implementation Engineer: data migration and customer onboarding. Trainer turned implementation engineer; built Cutover to move messy data into new systems. Remote, Chicago area.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
@@ -29,6 +29,9 @@ nav a:hover{color:var(--fg)}
 .hero h1{font-family:var(--display);font-size:clamp(34px,6vw,54px);line-height:1.05;margin:0 0 14px;font-weight:700;letter-spacing:-.01em;text-wrap:balance}
 .hero p.lede{font-size:19px;max-width:62ch;margin:0 0 24px;color:var(--fg)}
 .hero p.sub{color:var(--muted);max-width:66ch;margin:0 0 28px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:28px;align-items:start}
+.headshot{width:150px;height:150px;border-radius:50%;object-fit:cover;border:1px solid var(--line);box-shadow:0 8px 28px rgba(0,0,0,.14);display:block}
+@media (max-width:640px){.hero-grid{grid-template-columns:1fr}.headshot{width:110px;height:110px;order:-1}}
 .btns{display:flex;flex-wrap:wrap;gap:10px}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-decoration:none;font-weight:500;font-size:15px}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
@@ -75,9 +78,14 @@ footer a{color:var(--muted)}
   </header>
 
   <div class="hero">
-    <h1>I move customers and their data onto new systems, and I build the tooling that proves it landed.</h1>
-    <p class="lede">Implementation &amp; Solutions Engineer. Data migration, integrations, Python/SQL. AWS Certified Cloud Practitioner. Remote, Chicago area.</p>
-    <p class="sub">Five years of customer-facing IT, from a federal medical center's helpdesk to migrating a fitness business onto a new CRM and course platform. Three shipped projects below: a fail-closed migration validator, an ML service with CI and a hosted demo, and a rules-driven coaching app.</p>
+    <div class="hero-grid">
+    <div>
+    <h1>I move messy data into new systems, flagging every problem so nothing gets missed and nothing breaks.</h1>
+    <p class="lede">Implementation Engineer: Data Migration and Customer Onboarding. Python, SQL, YAML, AWS S3, Linux, Bash, APIs. Remote · Schererville, IN (Chicago area).</p>
+    <p class="sub">Trainer turned implementation engineer. Twenty years getting clients from messy starting points to their goals step by step, five of them running the technical side of small businesses and a federal medical center. Three shipped projects below: a fail-closed migration validator, an ML service with CI and a hosted demo, and a rules-driven coaching app.</p>
+    </div>
+    <img class="headshot" src="assets/headshot.jpg" alt="Michael Martiradonna" width="150" height="150">
+    </div>
     <div class="btns">
       <a class="btn primary" href="Michael_Martiradonna_Resume.pdf">Resume (PDF)</a>
       <a class="btn" href="https://github.com/MichaelMartiradonna">GitHub</a>
@@ -88,7 +96,7 @@ footer a{color:var(--muted)}
 
   <section id="projects">
     <h2>Projects</h2>
-    <div class="kicker">Three, each with a live link, the code, and the proof</div>
+    <div class="kicker">Three, with the code, demos, and the proof</div>
     <div class="projects">
 
       <article class="card">
@@ -99,8 +107,7 @@ footer a{color:var(--muted)}
           <p class="proof">34 automated tests · two worked examples (a property-management tenant export, a legacy parts list into a cloud table) · independent code review · byte-for-byte field comparison and SHA-256 checksums</p>
           <div class="stack">Python · YAML · SHA-256 · boto3/S3 · GitHub Actions</div>
           <div class="links">
-            <a class="btn" href="https://github.com/MichaelMartiradonna/cutover">Code</a>
-            <a class="btn soon" href="#" aria-disabled="true">Video (soon)</a>
+            <a class="btn primary" href="https://github.com/MichaelMartiradonna/cutover">Code and demos</a>
           </div>
         </div>
         <div class="visual">
@@ -146,7 +153,6 @@ row,rule,why
           <div class="links">
             <a class="btn primary" href="https://gymswap.seeform.ai">Live demo</a>
             <a class="btn" href="https://github.com/MichaelMartiradonna/gym-swap-demo">Code</a>
-            <a class="btn soon" href="#" aria-disabled="true">Video (soon)</a>
           </div>
         </div>
         <div class="visual">
@@ -160,21 +166,23 @@ row,rule,why
   <section id="about" class="about">
     <h2>About</h2>
     <div class="kicker">Why implementation work</div>
-    <p>I spent a year at the Captain James A. Lovell Federal Health Care Center resolving 100 to 150 tickets a week for clinical staff with 100% satisfaction, and before that I ran the technology for a fitness business: a CRM, a mobile app and a course platform, including migrating every client's records onto them without losing history. The pattern in both jobs is the same one implementation teams hire for: understand what the customer actually has, move it correctly, and make sure they can use it.</p>
-    <p>I also build. The three projects above are the evidence: a migration validator that refuses to guess, an ML service with honest metrics and CI, and a coaching app with 350+ tests. Outside work I am a NASM-certified trainer and run <a href="https://chitownperformancelab.com">Chi-Town Performance Lab</a>; seeform is where the coaching and the engineering meet.</p>
+    <p>For twenty years I have been a coach: take a client with a messy starting point, understand what they actually have, and get them to the goal step by step without anything breaking. Implementation work is the same job with data. At the Captain James A. Lovell Federal Health Care Center I resolved an average of 80 tickets a week for clinical staff with 100% satisfaction, and before that I ran the technology for a fitness business: a CRM, a mobile app and a course platform, including migrating every client's records onto them without losing history.</p>
+    <p>I also build. The three projects above are the evidence: a migration validator that refuses to guess, an ML service with honest metrics and CI, and a coaching app with 350+ tests. I still train select clients through <a href="https://chitownperformancelab.com">Chi-Town Performance Lab</a>; seeform is where the coaching and the engineering meet.</p>
     <div class="creds">
-      <span>AWS Certified Cloud Practitioner</span><span>TripleTen Data Analyst + AI/ML</span><span>Roosevelt University, 130+ credits</span><span>NASM CPT · PES · CES</span><span>Previously held TS (2013) and Secret (2023)</span>
+      <span>TripleTen AI/ML bootcamp + Data Analyst</span><span>Roosevelt University, CS coursework</span><span>NASM CPT · PES · CES</span><span>Precision Nutrition L1</span>
     </div>
   </section>
 
   <section id="experience">
     <h2>Experience</h2>
-    <div class="kicker">Customer-facing technical work since 2017</div>
+    <div class="kicker">Client-facing work since 2013, technical since 2017</div>
     <ul class="exp">
-      <li><div class="when">12/2023 – 12/2024</div><div><strong>IT Helpdesk Technician · Captain James A. Lovell Federal Health Care Center (VA)</strong><span>100–150 tickets a week, 100% satisfaction, two Bravo Zulu commendations. Active Directory and ServiceNow under federal change control.</span></div></li>
+      <li><div class="when">2024 – Present</div><div><strong>Personal Trainer (client delivery) · ElevateOS, Chicago · Chi-Town Performance Lab</strong><span>Onboard clients, deliver step-by-step programs, track progress, keep them on course and retained.</span></div></li>
+      <li><div class="when">12/2023 – 06/2024</div><div><strong>IT Helpdesk Technician · Captain James A. Lovell Federal Health Care Center (VA)</strong><span>An average of 80 tickets a week, 100% satisfaction, two Bravo Zulu commendations. Active Directory and ServiceNow under federal change control.</span></div></li>
       <li><div class="when">2021 – 2023</div><div><strong>IT Technical Manager &amp; Sales Support · Private Lending Group</strong><span>Text-based lead-qualification automation saving 10+ hours a week; directed contractors on web and CRM work.</span></div></li>
       <li><div class="when">08/2022 – 12/2022</div><div><strong>Junior Infrastructure Apprentice · Cloud5 Communications</strong><span>Device fleet updates and remote resets for major hotel chains; automated error reporting.</span></div></li>
-      <li><div class="when">2017 – 2020</div><div><strong>IT Strategist &amp; Technician · Elite Fitness</strong><span>Led the migration of client records, scheduling and course content onto a new CRM, app and education platform; Zapier, Manychat and ActiveCampaign automation saving 80+ hours a month.</span></div></li>
+      <li><div class="when">2017 – 2020</div><div><strong>Head Coach / Sales Manager &amp; IT Lead · Elite Fitness</strong><span>Led the migration of client records, scheduling and course content onto a new CRM, app and education platform; Zapier, Manychat and ActiveCampaign automation saving 80+ hours a month.</span></div></li>
+      <li><div class="when">2013 – 2016</div><div><strong>Volunteer Strength &amp; Conditioning Coach · Naval Station Great Lakes, IL</strong></div></li>
     </ul>
   </section>
 
@@ -190,7 +198,7 @@ row,rule,why
   </section>
 
   <footer>
-    <span>© 2026 Michael Martiradonna · Schererville, IN</span>
+    <span>© 2026 Michael Martiradonna · Schererville, IN (Chicago area)</span>
     <span><a href="https://seeform.ai">seeform.ai</a> · <a href="https://chitownperformancelab.com">chitownperformancelab.com</a></span>
   </footer>
 </div>
