@@ -1,0 +1,11 @@
+# Private working files: career brief, outreach drafts, resume source, planning notes. Never publish.
+internal/
+
+# Local Claude instructions for this folder (references internal/; keep it out of the public repo)
+CLAUDE.md
+
+# Local tooling
+.venv/
+__pycache__/
+.DS_Store
+Thumbs.db
